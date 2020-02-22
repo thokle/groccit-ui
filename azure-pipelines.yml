@@ -21,10 +21,10 @@ steps:
     ng build --prod
   displayName: 'npm install and build'
 
-- task: AzureWebApp@1
+- task: AzureRmWebAppDeployment@4
   inputs:
+    ConnectionType: 'AzureRM'
     azureSubscription: 'Azure subscription 1(f24adaa1-17fa-4f4b-bde1-10eefd86adb8)'
     appType: 'webApp'
-    appName: 'beta-groccit-ui'
-    package: 'dist/'
-    deploymentMethod: 'auto'
+    WebAppName: 'groccit-ui-beta'
+    packageForLinux: 'dist/'
